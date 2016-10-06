@@ -1,0 +1,141 @@
+body {
+  margin-top: 50px;
+  margin-left: 50px;
+}
+.circle {
+  width: 200px;
+  height: 200px;
+  background-color: chartreuse;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  animation: btn-shadow-out 0.2s ease-out forwards;
+}
+.circle.pressed {
+  animation: btn-shadow-in 0.2s ease-out forwards;
+}
+.circle .inner-circle {
+  position: absolute;
+  top: 15%;
+  left: 20%;
+}
+.circle .item {
+  margin-top: 10%;
+  margin-left: 0px;
+  width: 120px;
+  height: 20px;
+  background-color: teal;
+  border-radius: 5px;
+  position: relative;
+}
+.circle .item:first-child {
+  animation: first-item-rotate-out 0.2s ease-out forwards;
+}
+.circle .item:last-child {
+  animation: last-item-rotate-out 0.2s ease-out forwards;
+}
+.circle .item:nth-child(2) {
+  animation: show-second-item 0.2s ease-out forwards;
+}
+.circle.pressed .item:first-child {
+  animation: first-item-rotate-in 0.2s ease-out forwards;
+}
+.circle.pressed .item:last-child {
+  animation: last-item-rotate-in 0.2s ease-out forwards;
+}
+.circle.pressed .item:nth-child(2) {
+  animation: hide-second-item 0.2s ease-out forwards;
+}
+
+@keyframes btn-shadow-in {
+  0% {
+    box-shadow: 5px 5px 20px grey;
+  }
+  50% {
+    box-shadow: 0px 0px 0px grey;
+  }
+  51% {
+    box-shadow: inset 0px 0px 0px grey;
+  }
+  100% {
+    box-shadow: inset 5px 5px 20px grey;
+  }
+}
+@keyframes btn-shadow-out {
+  0% {
+    box-shadow: inset 5px 5px 20px grey;
+  }
+  50% {
+    box-shadow: inset 0px 0px 0px grey;
+  }
+  51% {
+    box-shadow: 0px 0px 0px grey;
+  }
+  100% {
+    box-shadow: 5px 5px 20px grey;
+  }
+}
+@keyframes first-item-rotate-in {
+  from {
+    margin-top: 20px;
+    transform: rotate(0deg);
+  }
+  to {
+    margin-top: 60px;
+    transform: rotate(45deg);
+  }
+}
+@keyframes last-item-rotate-in {
+  from {
+    margin-top: 20px;
+    transform: rotate(0deg);
+  }
+  to {
+    margin-top: -20px;
+    transform: rotate(-45deg);
+  }
+}
+@keyframes hide-second-item {
+  from {
+    width: 120px;
+    margin-top: 20px;
+    margin-left: 0;
+  }
+  to {
+    width: 0px;
+    margin-top: -20px;
+    margin-left: 60px;
+  }
+}
+@keyframes first-item-rotate-out {
+  from {
+    margin-top: 60px;
+    transform: rotate(45deg);
+  }
+  to {
+    margin-top: 20px;
+    transform: rotate(0deg);
+  }
+}
+@keyframes last-item-rotate-out {
+  from {
+    margin-top: -20px;
+    transform: rotate(-45deg);
+  }
+  to {
+    margin-top: 20px;
+    transform: rotate(0deg);
+  }
+}
+@keyframes show-second-item {
+  from {
+    width: 0px;
+    margin-top: -20px;
+    margin-left: 60px;
+  }
+  to {
+    width: 120px;
+    margin-top: 20px;
+    margin-left: 0;
+  }
+}
